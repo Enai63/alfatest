@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /API/v1
+
+feign:
+  okhttp:
+    enabled: true
+client:
+ config:
+  connectTimeout: 5000
+  readTimeout: 5000
+  loggerLevel: BASIC
+
+changer:
+  baseUrl: https://openexchangerates.org/api
+  token: <TOKEN_CHANGER>
+  baseCurrency: USD
+
+giphy:
+  token: <TOKEN_GIPHY>
+  basaeUrl: api.giphy.com/v1/gifs/random
