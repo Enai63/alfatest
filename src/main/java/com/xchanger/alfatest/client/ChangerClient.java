@@ -9,13 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "changerController", url = "${changer.baseUrl}")
 public interface ChangerClient {
 
-    @GetMapping("/latest.json?base=${changer.baseCurrency}&symbols={symbol}")
+    @GetMapping("/latest.json?base=${changer.baseCurrency}")
     ChangerModel getlatestCurrency(
-            @PathVariable String symbol,
             @RequestParam("app_id") String appId);
 
-    @GetMapping("/historical/{date}.json?&base=${changer.baseCurrency}&symbols={symbol}")
-    ChangerModel getHistoricalCurrency(@PathVariable String symbol,
-                                       @PathVariable String date,
+    @GetMapping("/historical/{date}.json?&base=${changer.baseCurrency}&base=${changer.baseCurrency}")
+    ChangerModel getHistoricalCurrency(@PathVariable String date,
                                        @RequestParam("app_id") String appId3);
 }
